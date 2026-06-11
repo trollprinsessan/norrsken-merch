@@ -1,0 +1,783 @@
+@import "tailwindcss";
+
+/* ============================================================
+   NORRSKEN MERCH — design system
+   Black on white. Typography is the design. Nothing decorative.
+   ============================================================ */
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --grey: #888;
+  --line: #e5e5e5;
+  --bg: #f5f5f5;
+  --red: #c00;
+
+  --nav-h: 52px;
+  --marquee-h: 20px;
+
+  --fz-base: 11px;
+  --lh-base: 15px;
+}
+
+@theme inline {
+  --color-background: var(--white);
+  --color-foreground: var(--black);
+  --font-sans: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--fz-base);
+  line-height: var(--lh-base);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  border-radius: 0;
+  display: block;
+}
+
+/* ---------- Type utilities ---------- */
+.u-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.u-kicker {
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.u-meta {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--grey);
+}
+
+.u-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.u-display {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.u-rule {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+.back-link {
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ---------- Hover ---------- */
+.hover-fade {
+  transition: opacity 0.12s ease;
+}
+.hover-fade:hover {
+  opacity: 0.55;
+}
+
+/* ---------- Primary button ---------- */
+.btn-black {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 46px;
+  background: var(--black);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 500;
+  border: 1px solid var(--black);
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+.btn-black:hover {
+  opacity: 0.82;
+}
+.btn-black:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  background: var(--white);
+  color: var(--black);
+  border: 1px solid var(--black);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ---------- Size selector (squares, not pills) ---------- */
+.size-box {
+  min-width: 42px;
+  height: 38px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  background: var(--white);
+  transition: border-color 0.1s ease;
+}
+.size-box[data-active="true"] {
+  border-color: var(--black);
+}
+.size-box[data-soldout="true"] {
+  color: var(--grey);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+/* ---------- Marquee (Capsule split style) ---------- */
+.marquee {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: stretch;
+  height: 20px;
+  background: #e8e8e8;
+  overflow: hidden;
+}
+/* Reserve space so scrolling content clears the fixed bottom ticker */
+main {
+  padding-bottom: var(--marquee-h);
+}
+.marquee__label {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-right: 1px solid var(--line);
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.marquee__caret {
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid var(--black);
+}
+.marquee__track {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.marquee__inner {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-scroll 40s linear infinite;
+}
+.marquee__inner span {
+  font-size: 9px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0 16px;
+  color: var(--black);
+}
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Mega foldout (Acne-style full-bleed menu) ---------- */
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  z-index: 70;
+}
+.mega__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 16px 36px;
+}
+.mega__col-h {
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  margin-bottom: 14px;
+}
+.mega__link {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 28px;
+  width: fit-content;
+}
+.mega__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.mega__dead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 28px;
+  color: var(--grey);
+}
+.mega__soon {
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ---------- ASCII train (scrolls right → left) ---------- */
+.train {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  overflow: hidden;
+  z-index: 40;
+  pointer-events: none;
+}
+.train__track {
+  display: inline-flex;
+  white-space: pre;
+  animation: train-scroll 16s linear infinite;
+  will-change: transform;
+}
+.train__car {
+  margin: 0;
+  padding-right: 8ch;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1.12;
+  font-weight: 400;
+  color: var(--black);
+}
+@keyframes train-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Cart drawer ---------- */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 60;
+}
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  background: var(--white);
+  z-index: 61;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--line);
+}
+
+/* ---------- Product image frame (always square, no radius, no border) ---------- */
+.product-frame {
+  position: relative;
+  background: var(--white);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+/* ---------- Responsive grids ---------- */
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 16px;
+  row-gap: 48px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+}
+.pdp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 20px;
+  row-gap: 36px;
+}
+.intro-faq {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.proc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .proc-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .intro-faq {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Ortner /projects-style card grid */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+}
+.proj-img {
+  position: relative;
+  aspect-ratio: 5 / 7;
+  overflow: hidden;
+  background: var(--bg);
+}
+.proj-cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 12px;
+}
+.proj-num {
+  flex: none;
+  font-style: italic;
+  color: var(--grey);
+}
+@media (max-width: 900px) {
+  .proj-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.split-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  aspect-ratio: 5 / 7;
+  width: 100%;
+}
+.carousel__count,
+.carousel__cap {
+  position: absolute;
+  bottom: 10px;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+.carousel__count {
+  left: 10px;
+}
+.carousel__cap {
+  right: 10px;
+}
+@media (max-width: 760px) {
+  .split-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .split-img {
+    aspect-ratio: 3 / 4;
+    min-height: 0;
+  }
+}
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.img-frame {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--bg);
+}
+@media (max-width: 640px) {
+  .img-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 1000px) {
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .merch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
+  }
+}
+@media (max-width: 768px) {
+  .feature-grid,
+  .pdp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Spec table (Actual Source catalog data) ---------- */
+/* Arket-style catalogue data: right-aligned keys, no rules, tight, letter-spaced */
+.spec-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  padding: 1.5px 0;
+}
+.spec-key {
+  text-align: right;
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  line-height: 16px;
+}
+.spec-val {
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 16px;
+}
+
+/* ---------- Home rotator (campaign content, sequential 1 → 8) ---------- */
+.rotator {
+  /* Full viewport behind the (transparent) header; only the bottom ticker
+     is reserved. Content is allowed to sit underneath the menu. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--marquee-h);
+  background: var(--white);
+  overflow: hidden;
+}
+.rotator__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+/* Desktop: clips 1–7 render larger; clip 8 keeps its own scale */
+@media (min-width: 701px) {
+  /* ~20% smaller than 2x, centered both axes (object-fit centers the
+     image; transform-origin defaults to center) */
+  .rotator__img {
+    transform: scale(1.6);
+  }
+}
+
+/* ---------- Home collage (objects travelling right → left) ---------- */
+.collage {
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - 110px);
+}
+.collage-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: max-content;
+  animation: collage-marquee 42s linear infinite;
+  will-change: transform;
+}
+.collage:hover .collage-track {
+  animation-play-state: paused;
+}
+.collage-item {
+  flex: none;
+  margin: 0 56px;
+  transform: translateY(var(--y, 0)) rotate(var(--rot, 0deg));
+}
+@keyframes collage-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.art-receipt {
+  width: 158px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px 12px 16px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 7px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: #000;
+  white-space: pre;
+}
+.art-tag {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 9px 16px 9px 22px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+}
+.art-tag::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  transform: translateY(-50%);
+}
+.art-stamp {
+  width: 96px;
+  height: 96px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.art-barcode {
+  width: 150px;
+  height: 44px;
+  background: repeating-linear-gradient(
+    90deg,
+    #000 0 2px,
+    #fff 2px 4px,
+    #000 4px 5px,
+    #fff 5px 9px
+  );
+}
+.art-cap {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   EXPERIMENT — Helvetica Bold, no caps (delete this block to revert)
+   ============================================================ */
+body,
+.u-label,
+.u-kicker,
+.u-display,
+.u-meta,
+.back-link,
+.btn-black,
+.btn-ghost,
+.mega__link,
+.mega__dead,
+.mega__soon,
+.spec-key,
+.spec-val,
+.size-box {
+  text-transform: none !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================================
+   MOBILE NAV — "Menu" toggle that drops the desktop stacked nav
+   as an inline panel (accordion), not a full-screen takeover.
+   Desktop is untouched: the column stays in flow above the break.
+   ============================================================ */
+.nav-mobile-toggle {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 46; /* stay above the full-screen overlay (z-45) */
+}
+/* Campaigns foldout: absolute overlay on desktop (no layout shift),
+   inline accordion on mobile (expands the panel). */
+.campaign-foldout {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  /* hide the in-flow column; the toggle opens a full-screen overlay */
+  .nav-desktop {
+    display: none;
+  }
+  .nav-mobile-toggle {
+    display: inline-flex;
+  }
+  /* Full-screen menu (Acne/SSENSE): white, airy, left-aligned.
+     z below the header so Close / logo / Bag stay tappable on top. */
+  .nav-desktop.is-open {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 84px 24px 40px;
+    overflow-y: auto;
+  }
+  /* links keep the site's default scale (11px) and weight (bold) —
+     only spacing is added for comfortable tap targets */
+  .nav-desktop.is-open > a.u-label {
+    padding: 11px 0;
+  }
+  .nav-desktop.is-open > div {
+    margin-top: 18px;
+  }
+  .nav-desktop.is-open > div > button.u-label {
+    padding: 11px 0;
+    cursor: pointer;
+  }
+  .campaign-foldout {
+    position: static;
+    margin-top: 0;
+    padding: 0;
+    white-space: normal;
+  }
+  .campaign-foldout > a,
+  .campaign-foldout > div {
+    padding: 9px 0;
+  }
+}
