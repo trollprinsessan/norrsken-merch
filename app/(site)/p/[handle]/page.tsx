@@ -49,7 +49,7 @@ export default async function ProductPage({
         </Link>
       </div>
 
-      <div className="pdp-grid" style={{ margin: "16px 16px 0" }}>
+      <div className="pdp-grid" style={{ marginTop: 24 }}>
         {/* Image — front / back, click to flip */}
         <ImageCarousel
           objectFit="contain"
@@ -80,7 +80,7 @@ export default async function ProductPage({
 
           {/* Expandable sections — free text */}
           <div style={{ marginTop: 32 }}>
-            <Accordion title="Details" defaultOpen>
+            <Accordion title="Details">
               {`${product.spec.provenance} ${product.spec.condition} ${product.spec.garment}`}
             </Accordion>
             <Accordion title="Size & Fit">

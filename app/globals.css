@@ -361,6 +361,28 @@ main {
   overflow: hidden;
 }
 
+/* ---------- Embed grids ---------- */
+.embed-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 14px;
+  row-gap: 36px;
+}
+.embed-pdp {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .embed-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .embed-pdp {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Responsive grids ---------- */
 .merch-grid {
   display: grid;
@@ -376,8 +398,11 @@ main {
 }
 .pdp-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 0;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin-inline: auto;
+  padding-inline: 16px;
 }
 .footer-grid {
   display: grid;
@@ -390,11 +415,16 @@ main {
   column-gap: 20px;
   row-gap: 36px;
 }
-.intro-faq {
+.about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
+}
+.faq-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 5px;
 }
 .proc-row {
   display: grid;
@@ -403,13 +433,17 @@ main {
   align-items: start;
 }
 @media (max-width: 760px) {
-  .proc-row {
+  .about-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-}
-@media (max-width: 760px) {
-  .intro-faq {
+  .about-grid > p {
+    grid-column: auto;
+  }
+  .faq-col {
+    grid-column: auto;
+  }
+  .proc-row {
     grid-template-columns: 1fr;
     gap: 28px;
   }
@@ -758,17 +792,16 @@ body,
     padding: 84px 24px 40px;
     overflow-y: auto;
   }
-  /* links keep the site's default scale (11px) and weight (bold) —
-     only spacing is added for comfortable tap targets */
+  /* match the desktop nav's tight line-height (the nav's inline gap:1px) */
   .nav-desktop.is-open > a.u-label {
-    padding: 11px 0;
+    padding: 0;
   }
   .nav-desktop.is-open > div {
-    margin-top: 18px;
+    margin-top: 0;
   }
+  /* "Campaigns" label hidden on mobile — its links flow inline with the rest */
   .nav-desktop.is-open > div > button.u-label {
-    padding: 11px 0;
-    cursor: pointer;
+    display: none;
   }
   .campaign-foldout {
     position: static;
@@ -778,6 +811,317 @@ body,
   }
   .campaign-foldout > a,
   .campaign-foldout > div {
-    padding: 9px 0;
+    padding: 0;
   }
+}
+
+
+/* ============================================================
+   EMBED — Times Eighteen editorial (Tracy Ma energy)
+   cheap.urls.loan color DNA: red headings, blue body, distort filter
+   ============================================================ */
+
+.embed-shell {
+  --t18: var(--font-t18, Georgia, serif);
+  --eRed:  rgb(218, 3, 3);
+  --eBlue: rgb(4, 15, 170);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  color: var(--eBlue);
+  background: white;
+  line-height: 1.2;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  filter: url("#distort");
+}
+
+
+/* ── Masthead ─────────────────────────────────────────────── */
+.embed-masthead {
+  padding: 24px 20px 0;
+  border-bottom: 2px solid var(--eBlue);
+}
+.embed-masthead__title {
+  font-family: var(--t18);
+  font-size: clamp(52px, 14vw, 96px);
+  line-height: 0.92;
+  color: var(--eRed);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+.embed-masthead__sub {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--eBlue);
+  padding: 6px 20px 2px;
+  letter-spacing: 0.01em;
+}
+.embed-masthead__cols {
+  display: flex;
+  border-top: 1px solid var(--eBlue);
+}
+.embed-masthead__left {
+  flex: 1;
+  border-right: 1px solid var(--eBlue);
+  padding: 12px 14px;
+}
+.embed-masthead__left-label {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--eBlue);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.embed-masthead__right {
+  flex: 1;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.embed-masthead__right-label {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-weight: normal;
+  color: var(--eBlue);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.embed-masthead__right-link {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--eRed);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.embed-masthead__desc {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 1.55;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--eBlue);
+  color: var(--eBlue);
+}
+
+/* ── Payment badges ───────────────────────────────────────── */
+.embed-pay-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.embed-pay-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--eBlue);
+  line-height: 0;
+}
+
+/* ── Product grid ─────────────────────────────────────────── */
+.embed-grid-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+.embed-drop {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.embed-drop__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 8px 12px 4px;
+  gap: 6px;
+}
+.embed-drop__num {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: normal;
+  color: var(--eBlue);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+.embed-drop__name {
+  font-family: var(--t18);
+  font-size: clamp(14px, 3vw, 20px);
+  line-height: 1.05;
+  color: var(--eBlue);
+  text-transform: uppercase;
+  flex: 1;
+}
+.embed-drop__price {
+  font-family: var(--t18);
+  font-size: clamp(11px, 1.8vw, 15px);
+  color: var(--eRed);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.embed-drop__img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.embed-drop__img img {
+  transition: transform 0.4s ease;
+}
+.embed-drop:hover .embed-drop__img img {
+  transform: scale(1.03);
+}
+.embed-drop__sub {
+  padding: 5px 12px 10px;
+  font-size: 10px;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--eBlue);
+  opacity: 0.7;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.embed-foot {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--eBlue);
+  transform: skew(0.25deg, 0.3deg);
+}
+.embed-foot a {
+  color: var(--eRed);
+  text-decoration: none;
+  font-style: normal;
+}
+.embed-foot a:hover { text-decoration: underline; }
+
+/* ── PDP ──────────────────────────────────────────────────── */
+.embed-pdp-title {
+  font-family: var(--t18);
+  font-size: clamp(28px, 8vw, 56px);
+  line-height: 0.95;
+  color: var(--eRed);
+  text-transform: uppercase;
+  padding: 16px 20px 10px;
+  border-bottom: 1px solid var(--eBlue);
+}
+.embed-pdp-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f2f2f2;
+  overflow: hidden;
+}
+.embed-pdp-meta {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--eBlue);
+}
+.embed-pdp-price {
+  font-family: var(--t18);
+  font-size: clamp(24px, 6vw, 40px);
+  color: var(--eRed);
+  line-height: 1;
+}
+.embed-pdp-campaign {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--eBlue);
+  margin-top: 4px;
+}
+.embed-pdp-desc {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 10px;
+  color: var(--eBlue);
+}
+.embed-pdp-buy {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--eBlue);
+}
+.embed-pdp-accordions {
+  padding: 0 20px;
+}
+.embed-back-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--eBlue);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transform: skew(0.25deg, 0.3deg);
+}
+.embed-back-bar a {
+  color: var(--eBlue);
+  text-decoration: none;
+  font-style: italic;
+}
+.embed-back-bar a:hover { text-decoration: underline; }
+
+/* ── Overrides for global components ─────────────────────── */
+.embed-shell .btn-black {
+  font-family: var(--t18);
+  font-size: clamp(13px, 3vw, 16px);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: var(--eRed);
+  color: white;
+  border: 2px solid var(--eRed);
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.12s, color 0.12s;
+}
+.embed-shell .btn-black:hover:not(:disabled) {
+  background: white;
+  color: var(--eRed);
+}
+.embed-shell .btn-black:disabled { opacity: 0.35; cursor: default; }
+
+.embed-shell .size-box {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 13px;
+  border: 2px solid var(--eBlue);
+  background: white;
+  color: var(--eBlue);
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.embed-shell .size-box[data-active="true"] {
+  background: var(--eBlue);
+  color: white;
+}
+.embed-shell .size-box[data-soldout="true"] { opacity: 0.3; text-decoration: line-through; cursor: default; }
+
+.embed-shell .u-label,
+.embed-shell .u-kicker {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--eBlue);
 }

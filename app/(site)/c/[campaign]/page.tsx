@@ -56,7 +56,7 @@ export default async function CampaignPage({
               <img
                 src={c.gif}
                 alt={c.title}
-                style={{ width: "min(440px, 78vw)", height: "auto", display: "block" }}
+                style={{ width: "min(680px, 78vw)", height: "auto", display: "block" }}
               />
             )}
           </div>

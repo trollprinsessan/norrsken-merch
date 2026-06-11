@@ -49,8 +49,8 @@ const STEPS: [string, string, string][] = [
 export default function AboutPage() {
   return (
     <div style={{ padding: "40px 16px 80px" }}>
-      {/* Intro (collaboration) + FAQ */}
-      <section className="intro-faq" style={{ marginBottom: 64 }}>
+      <div className="about-grid">
+        {/* Column 1 — intro text */}
         <p style={{ lineHeight: "18px" }}>
           Norrsken Merch is made together with{" "}
           <a
@@ -68,7 +68,8 @@ export default function AboutPage() {
           marked up for us.
         </p>
 
-        <div style={{ marginTop: 0, display: "grid", gap: 5 }}>
+        {/* Column 2 — FAQ accordions */}
+        <div className="faq-col">
           <Accordion title="Shipping & delivery" defaultOpen>
             Each piece is printed only once you order, so delivery takes 7 to 14
             working days. We ship across the EU, packed in paper bags made from
@@ -97,12 +98,12 @@ export default function AboutPage() {
             to everyone, some behind a code.
           </Accordion>
         </div>
-      </section>
 
-      {/* How a piece is made — gallery (left) + steps (right) */}
-      <section className="proc-row">
+      </div>
+
+      {/* Process — image + steps */}
+      <div className="proc-row" style={{ marginTop: 64 }}>
         <ImageCarousel images={GALLERY} />
-
         <div style={{ display: "grid", gap: 18 }}>
           {STEPS.map(([n, title, body]) => (
             <div key={n}>
@@ -115,7 +116,7 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 }
