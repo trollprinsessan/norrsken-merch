@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import EmbedAutoResize from "@/components/embed-auto-resize";
 
 const t18 = localFont({
   src: "../fonts/TimesEighteen-Bold.ttf",
@@ -9,6 +10,7 @@ const t18 = localFont({
 export default function EmbedLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`${t18.variable} embed-shell`} style={{ margin: "0 auto" }}>
+      <EmbedAutoResize />
       <svg aria-hidden="true" width="0" height="0" style={{ position: "absolute" }}>
         <defs>
           <filter id="distort">
