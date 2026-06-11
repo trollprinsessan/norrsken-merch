@@ -963,7 +963,7 @@ body,
 .cu-headline {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: 74px;
+  font-size: clamp(30px, 10.5vw, 74px);
   line-height: 0.92;
   color: var(--eRed);
   text-align: center;
