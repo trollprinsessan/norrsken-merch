@@ -31,31 +31,31 @@ export default async function EmbedCampaignPage() {
             </div>
             <div className="embed-pay-row">
               <span className="embed-pay-badge">
-                <svg viewBox="0 0 72 44" width="72" height="44" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 72 44" width="54" height="34" xmlns="http://www.w3.org/2000/svg">
                   <text x="36" y="30" textAnchor="middle" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="24" fill="#1A1F71" fontStyle="italic" letterSpacing="-1">VISA</text>
                 </svg>
               </span>
               <span className="embed-pay-badge">
-                <svg viewBox="0 0 72 44" width="72" height="44" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 72 44" width="54" height="34" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="26" cy="22" r="13" fill="#EB001B"/>
                   <circle cx="46" cy="22" r="13" fill="#F79E1B"/>
                   <path d="M36 11.2a13 13 0 0 1 0 21.6A13 13 0 0 1 36 11.2z" fill="#FF5F00"/>
                 </svg>
               </span>
               <span className="embed-pay-badge">
-                <svg viewBox="0 0 72 44" width="72" height="44" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 72 44" width="54" height="34" xmlns="http://www.w3.org/2000/svg">
                   <rect width="72" height="44" fill="#FFB3C7"/>
                   <text x="36" y="29" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="15" fill="#17120F" letterSpacing="0.5">klarna</text>
                 </svg>
               </span>
               <span className="embed-pay-badge">
-                <svg viewBox="0 0 72 44" width="72" height="44" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 72 44" width="54" height="34" xmlns="http://www.w3.org/2000/svg">
                   <text x="36" y="22" textAnchor="middle" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="13" fill="#003087">Pay</text>
                   <text x="36" y="36" textAnchor="middle" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="13" fill="#009CDE">Pal</text>
                 </svg>
               </span>
               <span className="embed-pay-badge">
-                <svg viewBox="0 0 72 44" width="72" height="44" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 72 44" width="54" height="34" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="sw" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="#EF3576"/>

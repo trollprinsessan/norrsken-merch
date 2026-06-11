@@ -868,39 +868,40 @@ body,
 .embed-masthead__left {
   flex: 1;
   border-right: 1px solid var(--eBlue);
-  padding: 12px 14px;
+  padding: 14px 16px;
 }
 .embed-masthead__left-label {
   font-family: Georgia, serif;
   font-weight: bold;
   font-style: italic;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--eBlue);
-  line-height: 1.4;
-  margin-bottom: 10px;
+  line-height: 1.25;
+  margin-bottom: 12px;
 }
 .embed-masthead__right {
   flex: 1;
-  padding: 12px 14px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .embed-masthead__right-label {
   font-family: Georgia, serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: normal;
   color: var(--eBlue);
   line-height: 1.4;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .embed-masthead__right-link {
   font-family: Georgia, serif;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 20px;
   color: var(--eRed);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  line-height: 1.1;
 }
 .embed-masthead__desc {
   font-style: italic;
