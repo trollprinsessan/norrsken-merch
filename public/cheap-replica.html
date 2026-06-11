@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Websites, Done Cheap — replica</title>
+<style>
+  :root {
+    --red:  rgb(218, 3, 3);
+    --blue: rgb(4, 15, 170);
+    --sans: Arial, Helvetica, sans-serif;
+    --serif: "Times New Roman", Times, serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+  body {
+    font-family: var(--sans);
+    color: var(--blue);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 28px 22px 18px;
+    /* photocopy misregistration */
+    transform: skew(-0.25deg, 0.15deg);
+  }
+
+  /* ── Inquire / subtitle ──────────────────────────────── */
+  .inquire {
+    font-family: var(--sans);
+    font-weight: 900;
+    font-size: 40px;
+    letter-spacing: -0.01em;
+    color: var(--red);
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0.5px 0.5px 0 rgba(218,3,3,0.35);
+  }
+  .subtitle {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 23px;
+    color: var(--blue);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 14px;
+    letter-spacing: -0.005em;
+  }
+
+  .rule {
+    border: none;
+    border-top: 4px solid var(--blue);
+    margin: 16px 0 0;
+  }
+
+  /* ── Two columns ─────────────────────────────────────── */
+  .cols {
+    display: flex;
+    margin-top: 22px;
+  }
+  .col { flex: 1; }
+  .col-head {
+    font-family: var(--sans);
+    font-weight: 900;
+    font-size: 23px;
+    color: var(--blue);
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+  .col-head.italic { font-style: italic; }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .badge {
+    border: 2.5px solid var(--blue);
+    background: #fff;
+    height: 42px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--blue);
+  }
+  .badge svg { display: block; }
+  .badge-text {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--blue);
+    letter-spacing: -0.01em;
+  }
+  .badge-cashapp { font-family: var(--sans); font-weight: 800; font-size: 14px; line-height: 0.95; color: var(--blue); }
+  .cashapp-icon {
+    width: 24px; height: 24px;
+    background: var(--blue);
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: 16px;
+    font-family: var(--sans);
+  }
+  .badge-venmo { font-family: var(--sans); font-weight: 800; font-size: 19px; color: var(--blue); letter-spacing: -0.02em; }
+  .badge-cash  { font-family: var(--sans); font-weight: 900; font-size: 16px; color: var(--blue); letter-spacing: 0.02em; }
+
+  /* right column */
+  .email-label {
+    font-family: var(--sans);
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--red);
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    margin-top: 40px;
+    line-height: 1.15;
+  }
+
+  /* ── Big headline ────────────────────────────────────── */
+  .headline-row {
+    position: relative;
+    margin-top: 30px;
+  }
+  .dollar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 104px;
+    color: var(--red);
+    line-height: 0.8;
+    text-shadow: 2px 3px 0 rgba(218,3,3,0.22);
+  }
+  .dollar.left  { left: 0; }
+  .dollar.right { right: 0; }
+  .headline {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 84px;
+    line-height: 0.92;
+    color: var(--red);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    text-shadow: 2px 3px 0 rgba(218,3,3,0.22);
+    font-size: 74px;
+  }
+
+  /* ── Body ────────────────────────────────────────────── */
+  .body { margin-top: 30px; }
+  .body p {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 23px;
+    line-height: 1.28;
+    color: var(--blue);
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── FAQ link ────────────────────────────────────────── */
+  .faq {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--blue);
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  .faq .tri { font-style: normal; text-decoration: none; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1 class="inquire">Inquire Today!!</h1>
+    <p class="subtitle">"More convenient than a new hobby"</p>
+    <hr class="rule">
+
+    <div class="cols">
+      <div class="col">
+        <p class="col-head italic">Sorry, No Credit<br>Cards Accepted</p>
+        <div class="badges">
+          <div class="badge">
+            <span class="cashapp-icon">$</span>
+            <span class="badge-cashapp">Cash<br>App</span>
+          </div>
+          <div class="badge"><span class="badge-venmo">venmo</span></div>
+          <div class="badge">
+            <svg width="26" height="28" viewBox="0 0 26 28" aria-label="PayPal">
+              <path d="M7 4 h7 c4 0 6 2 5 6 c-1 4 -4 5 -8 5 h-3 l-1 6 h-4 z" fill="none" stroke="rgb(4,15,170)" stroke-width="2"/>
+              <path d="M12 9 h6 c4 0 6 2 5 6 c-1 4 -4 5 -8 5 h-3 l-1 6 h-4 z" fill="none" stroke="rgb(4,15,170)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="badge">
+            <span class="cashapp-icon" style="border-radius:50%;font-style:italic">₿</span>
+            <span class="badge-text" style="font-style:italic">bitcoin</span>
+          </div>
+          <div class="badge"><span class="badge-cash">$ CASH $</span></div>
+        </div>
+      </div>
+
+      <div class="col">
+        <p class="col-head">Personal,<br>Professional,<br>Simple</p>
+        <p class="email-label">Email:<br>E@URLS.LOAN</p>
+      </div>
+    </div>
+
+    <div class="headline-row">
+      <span class="dollar left">$</span>
+      <h2 class="headline">Websites,<br>Done Cheap</h2>
+      <span class="dollar right">$</span>
+    </div>
+
+    <div class="body">
+      <p>Nowadays, when people need a website, they often are forced to turn to big, nasty companies who charge them a subscription fee.</p>
+      <p>Professional designers often are expensive and out of reach for just a simple personal site, and the only other cheaper option requires you to take up web development as a hobby. Who has time for that?</p>
+      <p>There is an easier way: give me $30 dollars, and I'll give you a clean, fast, stable website that lasts forever. It's that simple.</p>
+    </div>
+
+    <p class="faq"><span class="tri">▶ </span>Click for FAQs!</p>
+  </div>
+</body>
+</html>

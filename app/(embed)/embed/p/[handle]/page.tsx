@@ -24,17 +24,25 @@ export default async function EmbedProductPage({ params }: { params: Promise<{ h
 
   return (
     <div>
-      {/* Back bar */}
-      <div className="embed-back-bar">
-        <Link href="/embed/electro-union">← Back</Link>
-        <span>Electro Union · Campaign No. 01 · Norrsken</span>
+      <div style={{ padding: "16px 16px 0" }}>
+        <Link
+          href="/embed/electro-union"
+          aria-label="Back to Electro Union"
+          className="hover-fade"
+          style={{
+            color: "var(--eBlue)",
+            fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+            fontWeight: 400,
+            fontSize: 11,
+            letterSpacing: "0.05em",
+            display: "inline-block",
+          }}
+        >
+          GO BACK
+        </Link>
       </div>
 
-      {/* Title */}
-      <div className="embed-pdp-title">{product.title}</div>
-
-      {/* Full image */}
-      <div className="embed-pdp-img">
+      <div className="pdp-grid" style={{ marginTop: 24 }}>
         <ImageCarousel
           objectFit="contain"
           images={product.images.map((im, i) => ({
@@ -43,34 +51,38 @@ export default async function EmbedProductPage({ params }: { params: Promise<{ h
             caption: i === 0 ? "Front" : "Back",
           }))}
         />
+
+        <div className="bg-white" style={{ padding: "20px 20px 28px", maxWidth: 440 }}>
+          <h1 className="u-display" style={{ fontSize: "clamp(16px, 2vw, 22px)" }}>
+            {product.title}
+          </h1>
+          <div className="u-label" style={{ marginTop: 6, fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: 400, fontStyle: "normal", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+            Electro Union: Campaign 01
+          </div>
+          <div className="u-label u-num" style={{ marginTop: 14 }}>
+            {formatMoney(product.priceRange.minVariantPrice)}
+          </div>
+
+          <p style={{ marginTop: 18, marginBottom: 24, lineHeight: "16px", maxWidth: 380 }}>
+            {product.description}
+          </p>
+
+          <AddToBag product={product} />
+
+          <div style={{ marginTop: 32 }}>
+            <Accordion title="Details">
+              {`${product.spec.provenance} ${product.spec.condition} ${product.spec.garment}`}
+            </Accordion>
+            <Accordion title="Size & Fit">
+              {`${product.spec.weight} Size-matched to true size, a rescued garment that fits like a chosen one.`}
+            </Accordion>
+            <Accordion title="Process">
+              {`${product.spec.treatment.join(", ")}. ${product.spec.print} ${product.spec.origin} ${product.spec.shipping} The most sustainable t-shirt is the one that never had to be produced. Nothing here is printed until you order it.`}
+            </Accordion>
+          </div>
+        </div>
       </div>
 
-      {/* Price + meta + desc */}
-      <div className="embed-pdp-meta">
-        <div className="embed-pdp-price">{formatMoney(product.priceRange.minVariantPrice)}</div>
-        <div className="embed-pdp-campaign">Electro Union: Campaign 01 · Norrsken Foundation</div>
-        <p className="embed-pdp-desc">{product.description}</p>
-      </div>
-
-      {/* Buy */}
-      <div className="embed-pdp-buy">
-        <AddToBag product={product} />
-      </div>
-
-      {/* Accordions */}
-      <div className="embed-pdp-accordions">
-        <Accordion title="Details">
-          {`${product.spec.provenance} ${product.spec.condition} ${product.spec.garment}`}
-        </Accordion>
-        <Accordion title="Size & Fit">
-          {`${product.spec.weight} Size-matched to true size, a rescued garment that fits like a chosen one.`}
-        </Accordion>
-        <Accordion title="Process">
-          {`${product.spec.treatment.join(", ")}. ${product.spec.print} ${product.spec.origin} ${product.spec.shipping} The most sustainable t-shirt is the one that never had to be produced. Nothing here is printed until you order it.`}
-        </Accordion>
-      </div>
-
-      {/* Footer */}
       <div className="embed-foot">
         <span>Secondhand · rescued · re-printed</span>
         <a href="https://merch.norrsken.org/shop" target="_blank" rel="noreferrer">Full shop →</a>
