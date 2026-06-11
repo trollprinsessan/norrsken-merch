@@ -18,7 +18,7 @@ export default async function EmbedCampaignPage() {
       <div className="cu-top">
         <h1 className="cu-inquire">Join The Union!!</h1>
         <div className="cu-logo">
-          <Image src="/ElectroUnion_Hero_logo.png" alt="Make EU the Electro Union" width={344} height={190} style={{ width: "min(258px, 60vw)", height: "auto", display: "block", margin: "25px auto" }} />
+          <Image src="/ElectroUnion_Hero_logo.png" alt="Make EU the Electro Union" width={344} height={190} style={{ width: "min(200px, 60vw)", height: "auto", display: "block", margin: "25px auto" }} />
         </div>
 
 
@@ -27,13 +27,13 @@ export default async function EmbedCampaignPage() {
             <p className="cu-head cu-head--italic">Rescued Garments,<br />Printed On Order</p>
           </div>
 
+          <div className="cu-headline-row">
+            <h2 className="cu-headline">Official<br />Merchandise</h2>
+          </div>
+
           <div className="cu-col">
             <p className="cu-head">The Good Life Deserves<br />To Be Resilient</p>
           </div>
-        </div>
-
-        <div className="cu-headline-row">
-          <h2 className="cu-headline">Official<br />Merchandise</h2>
         </div>
 
         <div className="cu-badges" style={{ marginTop: "20px" }}>
