@@ -14,6 +14,14 @@ export default async function EmbedCampaignPage() {
 
   return (
     <div>
+      {/* Footer nav at top */}
+      <div className="embed-foot">
+        <span>Secondhand · rescued · re-printed</span>
+        <a href="https://merch.norrsken.org/shop" target="_blank" rel="noreferrer">
+          Full shop →
+        </a>
+      </div>
+
       {/* Masthead — cheap.urls.loan layout, Electro Union copy */}
       <div className="cu-top">
         <h1 className="cu-inquire">Join The Union!!</h1>
@@ -112,13 +120,6 @@ export default async function EmbedCampaignPage() {
         ))}
       </div>
 
-      {/* Footer */}
-      <div className="embed-foot">
-        <span>Secondhand · rescued · re-printed</span>
-        <a href="https://merch.norrsken.org/shop" target="_blank" rel="noreferrer">
-          Full shop →
-        </a>
-      </div>
     </div>
   );
 }
