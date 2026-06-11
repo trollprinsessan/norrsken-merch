@@ -69,7 +69,7 @@ export default async function EmbedCampaignPage() {
         </div>
 
         <div className="cu-body">
-          <p>Europe knows the good life. And the good life deserves resilience. Each piece is a rescued secondhand garment, washed, size-matched, and printed only once you order. Printed in Sweden by Imperfect Industries. Shipped across the EU. Norrsken takes no margin. The price covers production and shipping only. Make Europe the Electro Union.</p>
+          <p>Each piece is a rescued secondhand garment, washed, size-matched, and printed only once you order. Printed in Sweden by Imperfect Industries. Shipped across the EU. Norrsken takes no margin. The price covers production and shipping only. Make Europe the Electro Union.</p>
         </div>
 
         <details className="cu-faq-foldout">

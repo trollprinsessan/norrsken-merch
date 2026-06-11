@@ -850,7 +850,9 @@ body,
 .cu-top {
   --sans: Arial, Helvetica, sans-serif;
   --serif: "Times New Roman", Times, serif;
-  padding: 28px 22px 18px;
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 10px 22px 18px;
   text-align: center;
 }
 @keyframes cu-blink {
@@ -975,6 +977,7 @@ body,
 }
 .cu-body { margin-top: 30px; }
 .cu-body p {
+  text-align: left;
   font-family: var(--sans);
   font-weight: 800;
   font-size: 13.8px;
@@ -1151,9 +1154,8 @@ body,
 }
 @media (min-width: 601px) {
   .embed-shell { max-width: none; }
-  .cu-top { max-width: 900px; margin-inline: auto; }
   .embed-foot { max-width: 900px; margin-inline: auto; }
-  .embed-grid-list { grid-template-columns: repeat(5, 1fr); max-width: none; }
+  .embed-grid-list { grid-template-columns: repeat(5, 1fr); max-width: none; padding-inline: 80px; }
   /* desktop: cols flanking the headline in one row */
   .cu-cols { flex-wrap: nowrap; }
   .cu-cols .cu-col { flex: 0 0 110px; }
@@ -1184,13 +1186,13 @@ body,
 }
 .embed-drop__name {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: clamp(12px, 2.2vw, 16px);
+  font-size: clamp(10px, 1.4vw, 13px);
   line-height: 1.05;
   color: var(--eBlue);
 }
 .embed-drop__price {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: clamp(11px, 1.8vw, 14px);
+  font-size: clamp(9px, 1.2vw, 11px);
   color: var(--eRed);
   white-space: nowrap;
 }
