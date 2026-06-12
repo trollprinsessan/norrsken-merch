@@ -85,7 +85,7 @@ export default async function EmbedCampaignPage() {
             </details>
             <details className="cu-faq-item">
               <summary className="cu-faq-q">Where does the money go?</summary>
-              <p className="cu-faq-a">Norrsken takes no profit. The price covers only Imperfect&apos;s work — rescuing, restoring, printing and shipping each piece. Nothing is marked up for us.</p>
+              <p className="cu-faq-a">Norrsken takes no profit. The price covers only Imperfect&apos;s work: rescuing, restoring, printing and shipping each piece. Nothing is marked up for us.</p>
             </details>
             <details className="cu-faq-item">
               <summary className="cu-faq-q">Shipping &amp; returns?</summary>

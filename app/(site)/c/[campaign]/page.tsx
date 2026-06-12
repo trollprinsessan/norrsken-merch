@@ -1,4 +1,5 @@
 import Link from "next/link";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import {
   getCampaign,
@@ -7,6 +8,12 @@ import {
 } from "@/lib/shopify";
 import ProductCard from "@/components/product-card";
 import PageBackground from "@/components/page-background";
+
+const t18 = localFont({
+  src: "../../../fonts/TimesEighteen-Bold.ttf",
+  variable: "--font-t18",
+  display: "swap",
+});
 
 export async function generateStaticParams() {
   const campaigns = await getCampaigns();
@@ -41,14 +48,16 @@ export default async function CampaignPage({
     return (
       <>
         {c.bg && <PageBackground color={c.bg} />}
-        <div style={{ display: "flex", flexDirection: "column", minHeight: "84vh" }}>
+        <div className={t18.variable} style={{ display: "flex", flexDirection: "column", minHeight: "84vh" }}>
           <div
             style={{
               flex: 1,
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
               padding: "40px 16px 0",
+              gap: "32px",
             }}
           >
             {c.gif && (
@@ -59,6 +68,16 @@ export default async function CampaignPage({
                 style={{ width: "min(680px, 78vw)", height: "auto", display: "block" }}
               />
             )}
+            <p style={{
+              fontFamily: "var(--font-t18)",
+              fontSize: "clamp(36px, 8vw, 64px)",
+              fontWeight: 700,
+              textAlign: "center",
+              animation: "cs-blink 1.1s step-start infinite",
+            }}>
+              Coming soon
+              <style>{`@keyframes cs-blink { 0%,100%{opacity:1} 50%{opacity:0} }`}</style>
+            </p>
           </div>
         </div>
       </>
