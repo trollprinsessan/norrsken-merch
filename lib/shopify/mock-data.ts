@@ -20,8 +20,6 @@ function tee(args: {
   front: string;
   back: string;
   description: string;
-  garment: string;
-  weight: string;
   soldOut?: string[];
 }): Product {
   const frontImg = {
@@ -61,8 +59,8 @@ function tee(args: {
       condition: "Inspected and graded by hand.",
       treatment: ["Washed", "Size-matched", "Steam-pressed"],
       print: "Applied only once the order is placed.",
-      garment: args.garment,
-      weight: args.weight,
+      garment: "Minimum 50 % cotton. Unique base garment.",
+      weight: "Light-to-mid weight.",
       origin: "Reworked in Sweden.",
       shipping: "Ships across the EU.",
     },
@@ -80,8 +78,6 @@ export const PRODUCTS: Product[] = [
     back: "/products/eu-red-back.png",
     description:
       "A retired tee, rescued and re-printed with the Electro Union mark. Every base garment is one of one. Weave, weight and white shift between pieces. Worn, not posted.",
-    garment: "100% cotton, single jersey. Unique base garment.",
-    weight: "Mid-weight, ~180 gsm.",
   }),
   tee({
     handle: "electro-union-stars",
@@ -93,8 +89,6 @@ export const PRODUCTS: Product[] = [
     back: "/products/eu-blue-back.png",
     description:
       "Twelve stars, twice over. A campaign mark for a fully electrified Europe. Clean power, no compromise. Printed on a rescued tee only when you order.",
-    garment: "100% cotton. Unique base garment.",
-    weight: "Light-to-mid weight.",
     soldOut: ["XS"],
   }),
   tee({
@@ -108,8 +102,6 @@ export const PRODUCTS: Product[] = [
     back: "/products/eu-blue-back.png",
     description:
       "Make Europe the Electro-Union. A borrowed seal, redrawn. One rescued garment, printed to order, shipped across the EU.",
-    garment: "100% cotton. Unique base garment.",
-    weight: "Mid-weight.",
   }),
   tee({
     handle: "electro-union-press",
@@ -122,8 +114,6 @@ export const PRODUCTS: Product[] = [
     back: "/products/eu-black-back.png",
     description:
       "A pressed-metal nameplate, set on a rescued tee. The least loud of the campaign. Printed only on order.",
-    garment: "100% cotton. Unique base garment.",
-    weight: "Mid-weight.",
     soldOut: ["XS", "S"],
   }),
   {

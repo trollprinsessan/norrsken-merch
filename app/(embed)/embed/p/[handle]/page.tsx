@@ -74,10 +74,10 @@ export default async function EmbedProductPage({ params }: { params: Promise<{ h
               {`${product.spec.provenance} ${product.spec.condition} ${product.spec.garment}`}
             </Accordion>
             <Accordion title="Size & Fit">
-              {`${product.spec.weight} Size-matched to true size, a rescued garment that fits like a chosen one.`}
+              {`${product.spec.weight} Size-matched to true size (unisex), a rescued garment that fits like a chosen one.`}
             </Accordion>
             <Accordion title="Process">
-              {`${product.spec.treatment.join(", ")}. ${product.spec.print} ${product.spec.origin} ${product.spec.shipping} The most sustainable t-shirt is the one that never had to be produced. Nothing here is printed until you order it.`}
+              {`${product.spec.treatment.join(", ")}. ${product.spec.print} ${product.spec.origin} ${product.spec.shipping} Minor mending may occur. The most sustainable t-shirt is the one that never had to be produced. Nothing here is printed until you order it.`}
             </Accordion>
           </div>
         </div>
