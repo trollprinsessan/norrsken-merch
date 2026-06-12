@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart/cart-context";
 import { formatMoney } from "@/lib/shopify";
@@ -17,6 +17,15 @@ export default function CartDrawer() {
   const isEmbed = pathname?.startsWith("/embed") ?? false;
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // In the embed the cart sheet is pinned to the top of the (tall) iframe, so a
+  // visitor scrolled further down won't see it open. Ask the host page to scroll
+  // the iframe into view so the sheet lands in their viewport.
+  useEffect(() => {
+    if (isOpen && isEmbed && typeof window !== "undefined" && window.parent !== window) {
+      window.parent.postMessage({ type: "eu-embed-cart-open" }, "*");
+    }
+  }, [isOpen, isEmbed]);
 
   async function onCheckout() {
     if (!live || lines.length === 0) return;
