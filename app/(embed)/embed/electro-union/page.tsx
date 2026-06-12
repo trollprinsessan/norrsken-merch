@@ -14,19 +14,11 @@ export default async function EmbedCampaignPage() {
 
   return (
     <div>
-      {/* Footer nav at top */}
-      <div className="embed-foot">
-        <span>Secondhand · rescued · re-printed</span>
-        <a href="https://merch.norrsken.org/shop" target="_blank" rel="noreferrer">
-          Full shop →
-        </a>
-      </div>
-
       {/* Masthead — cheap.urls.loan layout, Electro Union copy */}
       <div className="cu-top">
         <h1 className="cu-inquire">Join The Union!!</h1>
         <div className="cu-logo">
-          <Image src="/ElectroUnion_Hero_logo.png" alt="Make EU the Electro Union" width={344} height={190} style={{ width: "min(200px, 60vw)", height: "auto", display: "block", margin: "25px auto" }} />
+          <Image src="/ElectroUnion_Hero_logo.png" alt="Make EU the Electro Union" width={344} height={190} style={{ width: "min(110px, 30vw)", height: "auto", display: "block", margin: "40px auto" }} />
         </div>
 
 
@@ -40,7 +32,7 @@ export default async function EmbedCampaignPage() {
           </div>
 
           <div className="cu-col">
-            <p className="cu-head">The Good Life Deserves<br />To Be Resilient</p>
+            <p className="cu-head">Same Pasta,<br />Own Power</p>
           </div>
         </div>
 
@@ -118,6 +110,13 @@ export default async function EmbedCampaignPage() {
             </div>
           </Link>
         ))}
+      </div>
+
+      <div className="embed-foot">
+        <span>Secondhand · rescued · re-printed</span>
+        <a href="https://merch.norrsken.org/shop" target="_blank" rel="noreferrer">
+          Full shop →
+        </a>
       </div>
 
     </div>

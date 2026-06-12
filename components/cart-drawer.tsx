@@ -18,7 +18,8 @@ export default function CartDrawer() {
     setError(null);
     const res = await checkout();
     if (res.url) {
-      window.location.href = res.url;
+      // Open in new tab so iframe embeds aren't blocked by imperfect.se's frame-ancestors CSP
+      window.open(res.url, "_blank", "noopener,noreferrer");
       return;
     }
     setError(res.error ?? "Checkout is unavailable right now.");
