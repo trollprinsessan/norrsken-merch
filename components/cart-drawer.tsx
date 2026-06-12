@@ -3,12 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart/cart-context";
 import { formatMoney } from "@/lib/shopify";
 
 export default function CartDrawer() {
   const { isOpen, closeCart, lines, subtotal, setQty, count, live, checkout } =
     useCart();
+  const pathname = usePathname();
+  // Inside the iframe embed there's no real viewport — a full-height fixed
+  // drawer stretches the whole resized iframe, burying the checkout button.
+  // Use a compact, top-anchored sheet there instead.
+  const isEmbed = pathname?.startsWith("/embed") ?? false;
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -16,12 +22,25 @@ export default function CartDrawer() {
     if (!live || lines.length === 0) return;
     setPending(true);
     setError(null);
+
+    // Open the tab synchronously, inside the click gesture — mobile browsers
+    // (esp. iOS Safari) block window.open that runs after an await. We get the
+    // checkout URL afterwards and point the already-opened tab at it.
+    const tab = window.open("about:blank", "_blank");
+
     const res = await checkout();
     if (res.url) {
-      // Open in new tab so iframe embeds aren't blocked by imperfect.se's frame-ancestors CSP
-      window.open(res.url, "_blank", "noopener,noreferrer");
+      if (tab) {
+        tab.location.href = res.url;
+      } else {
+        // Popup was blocked — break the iframe out to checkout in the top window.
+        (window.top ?? window).location.href = res.url;
+      }
       return;
     }
+
+    // Checkout failed — close the blank tab we opened and surface the error.
+    if (tab) tab.close();
     setError(res.error ?? "Checkout is unavailable right now.");
     setPending(false);
   }
@@ -31,7 +50,7 @@ export default function CartDrawer() {
   return (
     <>
       <div className="drawer-overlay" onClick={closeCart} />
-      <aside className="drawer-panel" aria-label="Bag">
+      <aside className={`drawer-panel${isEmbed ? " drawer-panel--embed" : ""}`} aria-label="Bag">
         {/* header */}
         <div
           className="flex items-center justify-between"
@@ -50,7 +69,7 @@ export default function CartDrawer() {
         </div>
 
         {/* lines */}
-        <div style={{ flex: 1, overflowY: "auto" }}>
+        <div style={{ flex: isEmbed ? "0 1 auto" : 1, overflowY: "auto", maxHeight: isEmbed ? 320 : undefined }}>
           {lines.length === 0 ? (
             <p className="u-meta" style={{ padding: 16 }}>
               Your bag is empty.

@@ -352,6 +352,19 @@ main {
   flex-direction: column;
   border-left: 1px solid var(--line);
 }
+/* Embed: no real viewport inside the iframe — a full-height drawer buries the
+   checkout button. Use a compact, top-anchored sheet sized to its content. */
+.drawer-panel--embed {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: auto;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  border-left: none;
+  border-bottom: 1px solid var(--line);
+}
 
 /* ---------- Product image frame (always square, no radius, no border) ---------- */
 .product-frame {
