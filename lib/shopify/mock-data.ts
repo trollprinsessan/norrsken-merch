@@ -152,12 +152,18 @@ export const PRODUCTS: Product[] = [
     ],
     tags: ["made-to-order", "eu-only"],
     spec: {
-      provenance: "Made to order.",
-      condition: "New, deadstock blank.",
-      treatment: ["Embroidered", "Steam-pressed"],
-      print: "Embroidered only once the order is placed.",
-      garment: "Brushed cotton twill, six-panel, adjustable strap.",
-      weight: "Structured, low profile.",
+      // Details = provenance + condition + garment
+      provenance: "Made to order. Secondhand.",
+      condition: "Rescued from disposal.",
+      garment: "Inspected by hand.",
+      // Size & Fit and Process use full-text overrides (cap copy diverges)
+      sizeFitText: "One size / fits all.",
+      processText:
+        "Thoroughly cleaned. Printed only once the order is placed. Finished in Sweden. Ships across the EU. Minor mending may occur. The most sustainable garment is the one that never had to be produced. Nothing here is printed until you order it.",
+      // Retained for completeness; superseded by the overrides above.
+      treatment: ["Thoroughly cleaned"],
+      print: "Printed only once the order is placed.",
+      weight: "One size / fits all.",
       origin: "Finished in Sweden.",
       shipping: "Ships across the EU.",
     },

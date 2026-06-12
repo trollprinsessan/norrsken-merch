@@ -42,6 +42,10 @@ export type ProcessSpec = {
   weight: string;
   origin: string;
   shipping: string;
+  // Optional full-text overrides for products whose copy diverges from the
+  // shared accordion template (e.g. the cap — "One size / fits all.").
+  sizeFitText?: string;
+  processText?: string;
 };
 
 export type Product = {
