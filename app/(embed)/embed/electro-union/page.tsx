@@ -114,7 +114,7 @@ export default async function EmbedCampaignPage() {
 
       <div className="embed-foot">
         <span>Secondhand · rescued · re-printed</span>
-        <a href="https://merch.norrsken.org/shop" target="_blank" rel="noreferrer">
+        <a href="https://norrsken-merch.vercel.app/shop" target="_top" rel="noreferrer">
           Full shop →
         </a>
       </div>
